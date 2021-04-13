@@ -1,0 +1,23 @@
+{
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "name": "app.js",
+    "version": "1.0.0",
+    "description": "tutorial",
+    "main": "app.js",
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "nil"
+    },
+    "keywords": [
+        "nil"
+    ],
+    "author": "Victoria",
+    "license": "ISC"
+}
