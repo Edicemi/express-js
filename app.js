@@ -1,19 +1,20 @@
-const http = require('http');
-
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use((req, res, next) => {
-    console.log('In the middle ware!');
-    next(); // allows the request to continue to the next middleware in line
-});
+//order doesn't matter
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
+//register a parser before routes handling middlewares
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/admin', adminRoutes); // order matters
+app.use(shopRoutes); // registered as second
 
 app.use((req, res, next) => {
-    console.log('In a new middle ware!');
-    res.send('<h1>Hello from Express!</h1>');
+    res.status(404).send('<h1>Page not found</h1>');
 });
 
-const server = http.createServer(app);
-
-server.listen(3000);
+app.listen(3000);
